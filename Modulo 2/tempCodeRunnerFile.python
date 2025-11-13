@@ -1,0 +1,48 @@
+# Paleta de cores do sistema EstoquePro (tema verde padrão)
+PALETA_CORES = {
+    'primaria': '#2E7D32',      # Verde escuro (principal)
+    'secundaria': '#66BB6A',    # Verde claro
+    'destaque': '#A5D6A7',      # Verde suave para destaque
+    'texto': '#212121',         # Preto suave
+    'fundo': '#F5F5F5',         # Cinza muito claro
+    'branco': '#FFFFFF',        # Branco puro
+    'erro': '#D32F2F',          # Vermelho para mensagens de erro
+    'sucesso': '#388E3C'        # Verde para mensagens de sucesso
+}
+
+# Fonte padrão do sistema
+FONTE_PADRAO = {
+    'familia': 'Poppins',  # Fonte moderna e limpa
+    'tamanho_padrao': 14,
+    'titulo': 20,
+    'subtitulo': 16,
+    'peso_titulo': 'bold'
+}
+
+# Configuração base para aplicar tema global no Flet
+# Pode ser chamada no início da aplicação para padronizar o layout
+def aplicar_tema(page):
+    page.theme_mode = 'light'
+    page.bgcolor = PALETA_CORES['fundo']
+    page.fonts = {
+        'Poppins': 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap'
+    }
+    page.theme = {
+        'color_scheme_seed': PALETA_CORES['primaria'],
+        'primary': PALETA_CORES['primaria'],
+        'secondary': PALETA_CORES['secundaria'],
+        'surface': PALETA_CORES['branco'],
+        'on_primary': PALETA_CORES['branco'],
+        'on_secondary': PALETA_CORES['texto'],
+        'error': PALETA_CORES['erro']
+    }
+
+# Exemplo de uso:
+# import flet as ft
+# from tema import aplicar_tema
+#
+# def main(page: ft.Page):
+#     aplicar_tema(page)
+#     page.add(ft.Text('Bem-vindo ao EstoquePro!', size=FONTE_PADRAO['titulo'], weight=FONTE_PADRAO['peso_titulo']))
+#
+# ft.app(target=main)
